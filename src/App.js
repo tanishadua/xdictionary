@@ -18,10 +18,10 @@ const [show, setShow] = useState(false)
 
 const performSearch = () => {
   if(searchInput==='') {
-    setShow(false)
+    setDefinition('Word not found in the dictionary.')
     return
   }
-  const imprString = searchInput[0].toUpperCase()+searchInput.slice(1)
+  const imprString = searchInput[0].toUpperCase()+searchInput.slice(1).toLowerCase()
   let def = data.find(item => item.word === imprString)
   setShow(true)
   if(!def){
@@ -35,7 +35,7 @@ const performSearch = () => {
       <h1>Dictionary App</h1>
       <input type='text' placeholder='Search for a word' onChange={e=>setSearchInput(e.target.value)} value={searchInput}/>
       <button onClick={performSearch}>Search</button>
-      <h3>Definiion: </h3>
+      <h3>Definition:</h3>
       {show && <p>{definition}</p> }
     </div>
   );
