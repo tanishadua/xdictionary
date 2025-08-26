@@ -18,6 +18,7 @@ const [show, setShow] = useState(false)
 
 const performSearch = () => {
   if(searchInput==='') {
+    setShow(true)
     setDefinition('Word not found in the dictionary.')
     return
   }
